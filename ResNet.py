@@ -126,6 +126,8 @@ for epoch in range(Epoch):
               #print(pred.shape)
               total_ccorect+=torch.eq(pred,label_test).float().sum().item()
               total_num+=label_test.size(0)
+              if total_num>=2000:
+                    break
           acc=total_ccorect/total_num
           print('epoch:',epoch,'step:',step,'| test accuracy: %.2f' % acc)
 
